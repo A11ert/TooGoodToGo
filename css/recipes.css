@@ -1,0 +1,185 @@
+/* Recipes page */
+
+
+/* ---------- Recipes: "magazine" grid, mobile-first ---------- */
+
+/* phone: 1 per row */
+.recipes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background-color: #fff;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease;
+}
+
+.recipe:hover {
+    transform: translateY(-4px);
+}
+
+.recipe:hover .bag-photo {
+    transform: scale(1.06);
+}
+
+.recipe-body {
+    flex: 1;
+    padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.recipe-meta {
+    margin-bottom: 0.35rem;
+    color: var(--orange);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.recipe-title {
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+    font-size: 1.4rem;
+}
+
+.recipe-body > p:not(.recipe-meta) {
+    color: var(--text);
+}
+
+.recipe-featured .recipe-media {
+    height: 14rem;
+}
+
+.recipe-featured .recipe-title {
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+}
+
+/* <details>: the steps open and close without JavaScript */
+.recipe summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border: 2px solid var(--line);
+    border-radius: 999px;
+    color: var(--maroon);
+    font-weight: 700;
+    list-style: none; /* hides the default triangle */
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.recipe summary::-webkit-details-marker {
+    display: none;
+}
+
+.recipe summary:hover {
+    border-color: var(--maroon);
+}
+
+.recipe summary::after {
+    content: "+";
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+/* when the details are open, the + turns into × */
+.recipe details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.recipe details ol {
+    margin: 1rem 0 0;
+    padding-left: 1.25rem;
+    color: var(--text);
+}
+
+.recipe details li + li {
+    margin-top: 0.35rem;
+}
+
+.recipe details li::marker {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+/* tablet: 2 per row, the big recipe takes the whole first row,
+   the last one too, so there is no empty place */
+@media (min-width: 768px) {
+    .recipes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .recipe-featured,
+    .recipe:last-child {
+        grid-column: span 2;
+    }
+}
+
+/* laptop: 3 per row, the big recipe is 2 columns wide and 2 rows high */
+@media (min-width: 992px) {
+    .recipes {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .recipe:last-child {
+        grid-column: auto;
+    }
+
+    .recipe-featured {
+        grid-row: span 2;
+    }
+
+    .recipe-featured .recipe-media {
+        flex: 1;
+        min-height: 14rem;
+    }
+}
+
+
+/* ---------- Keep it fresh (Flexbox) ---------- */
+
+.keep {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.keep-item {
+    flex: 1 1 14rem;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    background-color: #fff;
+    box-shadow: var(--shadow);
+}
+
+.keep-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    background-color: var(--peach);
+    font-size: 1.75rem;
+}
+
+.keep-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.keep-item p {
+    margin: 0;
+    color: var(--text);
+}
