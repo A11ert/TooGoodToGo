@@ -1,0 +1,341 @@
+/* Partner story page: my Assignment 3 page, redone in the style of the website */
+
+
+/* ---------- Hero with a photo ---------- */
+
+/* a dark red layer on top of the photo, so the light text stays readable */
+.store-hero {
+    display: flex;
+    align-items: center;
+    min-height: 75vh;
+    padding-block: 2rem 4rem;
+    color: var(--peach);
+    background: linear-gradient(rgba(110, 4, 2, 0.86), rgba(110, 4, 2, 0.86)),
+                url("../images/doner-spit.jpg") center / cover no-repeat;
+}
+
+/* laptop: the layer fades to the right, so the döner spit on the photo is visible */
+@media (min-width: 992px) {
+    .store-hero {
+        background: linear-gradient(90deg, rgba(110, 4, 2, 0.97) 35%, rgba(110, 4, 2, 0.55) 70%, rgba(110, 4, 2, 0.2)),
+                    url("../images/doner-spit.jpg") center / cover no-repeat;
+    }
+}
+
+.store-hero .eyebrow {
+    color: var(--apricot);
+}
+
+.store-title {
+    color: var(--peach);
+    font-size: clamp(3rem, 11vw, 6.5rem);
+    letter-spacing: -0.045em;
+    margin-bottom: 1.25rem;
+}
+
+.store-lead {
+    max-width: 34rem;
+    margin-bottom: 1.5rem;
+    color: rgba(253, 224, 193, 0.85);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+}
+
+/* Bootstrap breadcrumb with an arrow instead of "/" */
+.store-breadcrumb {
+    --bs-breadcrumb-divider: "→";
+    --bs-breadcrumb-divider-color: rgba(253, 224, 193, 0.6);
+    --bs-breadcrumb-item-active-color: var(--peach);
+    --bs-breadcrumb-margin-bottom: 2.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.store-breadcrumb a {
+    color: var(--apricot);
+    text-decoration: none;
+}
+
+.store-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* facts in round "pills" (Flexbox) */
+.store-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 0 2rem;
+    padding: 0;
+    list-style: none;
+}
+
+.store-facts li {
+    padding: 0.45rem 1rem;
+    border: 1px solid rgba(253, 224, 193, 0.35);
+    border-radius: 999px;
+    background-color: rgba(253, 224, 193, 0.12);
+    font-size: 0.9rem;
+}
+
+
+/* ---------- Story ---------- */
+
+.store-photo {
+    position: relative;
+}
+
+.store-photo img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 2rem;
+    box-shadow: var(--shadow);
+    transform: rotate(-2deg);
+    transition: transform 0.4s ease;
+}
+
+.store-photo:hover img {
+    transform: rotate(0deg);
+}
+
+.store-photo figcaption {
+    margin-top: 1.25rem;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.photo-sticker {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background-color: var(--orange);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    box-shadow: 0 10px 24px rgba(31, 20, 16, 0.2);
+    rotate: 10deg;
+}
+
+.store-quote {
+    margin: 1.5rem 0 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 5px solid var(--orange);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background-color: var(--cream);
+}
+
+.store-quote blockquote {
+    margin-bottom: 0.5rem;
+}
+
+.store-quote p {
+    margin: 0;
+    color: var(--maroon);
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.store-quote figcaption {
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+
+/* ---------- Inside the bag: my own grid, mobile-first ---------- */
+
+/* phone (base styles): 1 per row, everything centred */
+.inside {
+    padding: 3.5rem 1rem;
+    background-color: var(--cream);
+}
+
+/* a limit, not a fixed width: on a phone the block is still 100% wide */
+.inside-inner {
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+.inside-head {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.inside-title {
+    font-size: 2rem;
+}
+
+.inside-intro {
+    max-width: 34rem;
+    margin: 0 auto;
+    color: var(--text);
+}
+
+.inside-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.inside-item {
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    background-color: #fff;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.25s ease;
+}
+
+.inside-item:hover {
+    transform: translateY(-4px) rotate(-1deg);
+}
+
+.inside-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: var(--peach);
+    font-size: 2rem;
+}
+
+.inside-item h3 {
+    font-size: 1.35rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.inside-item p {
+    margin: 0;
+    color: var(--text);
+}
+
+/* tablet: 2 per row, text on the left, more space */
+@media (min-width: 768px) {
+    .inside {
+        padding: 5rem 2rem;
+    }
+
+    .inside-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .inside-item {
+        text-align: left;
+    }
+}
+
+/* laptop: 3 per row, bigger heading */
+@media (min-width: 992px) {
+    .inside {
+        padding: 6.5rem 2rem;
+    }
+
+    .inside-title {
+        font-size: 3.25rem;
+    }
+
+    .inside-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+
+/* ---------- Reviews (Flexbox, the comment from Assignment 2) ---------- */
+
+.reviews-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.rating {
+    margin: 0;
+    color: var(--text);
+}
+
+.rating strong {
+    margin-right: 0.25rem;
+    color: var(--maroon);
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+}
+
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.review {
+    display: flex;
+    gap: 1rem;
+    flex: 1 1 18rem;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    background-color: #fff;
+    box-shadow: var(--shadow);
+}
+
+.review-avatar {
+    flex: none; /* the circle never gets squeezed */
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    background-color: var(--orange);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.review:nth-child(2) .review-avatar {
+    background-color: var(--leaf);
+}
+
+.review:nth-child(3) .review-avatar {
+    background-color: var(--maroon);
+}
+
+.review-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.review-name {
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+}
+
+.review-stars {
+    margin-left: 0.35rem;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+}
+
+.review-text {
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.review-date {
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+}

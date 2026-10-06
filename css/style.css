@@ -1,0 +1,805 @@
+/* Too Good To Go - shared styles for every page, loaded after Bootstrap */
+
+
+/* ---------- 1. Colours, fonts and sizes ---------- */
+
+:root {
+    --peach: #fde0c1;
+    --cream: #fff4e6;
+    --maroon: #6e0402;
+    --red: #950603;
+    --orange: #c8501e;
+    --apricot: #ffb98a;
+    --ink: #1f1410;
+    --text: #5a453b;
+    --leaf: #2f6b4f;
+    --line: rgba(110, 4, 2, 0.15);
+
+    --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+    --font-body: "Geist", system-ui, sans-serif;
+    --font-mono: "Geist Mono", ui-monospace, monospace;
+
+    --radius: 1.25rem;
+    --shadow: 0 10px 30px rgba(110, 4, 2, 0.12);
+    --section-space: 3.5rem;
+
+    /* Bootstrap reads these variables, so its links and focus rings get our colours */
+    --bs-body-font-family: var(--font-body);
+    --bs-link-color-rgb: 149, 6, 3;
+    --bs-link-hover-color-rgb: 110, 4, 2;
+}
+
+/* more space between sections on bigger screens */
+@media (min-width: 768px) {
+    :root {
+        --section-space: 5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --section-space: 6.5rem;
+    }
+}
+
+
+/* ---------- 2. Base ---------- */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* so the sticky menu does not cover a section after #link */
+}
+
+body {
+    background-color: var(--peach);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--maroon);
+}
+
+::selection {
+    background-color: var(--orange);
+    color: #fff;
+}
+
+
+/* ---------- 3. Sections and headings ---------- */
+
+.section {
+    padding-block: var(--section-space);
+}
+
+.section-cream {
+    background-color: var(--cream);
+}
+
+.section-dark {
+    background-color: var(--maroon);
+    color: var(--peach);
+}
+
+.section-ink {
+    background-color: var(--ink);
+    color: var(--peach);
+}
+
+.section-dark :is(h1, h2, h3),
+.section-ink :is(h1, h2, h3) {
+    color: var(--peach);
+}
+
+/* small monospace label above a heading */
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+}
+
+.section-dark .eyebrow,
+.section-ink .eyebrow {
+    color: var(--apricot);
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+}
+
+.section-intro {
+    color: var(--text);
+    font-size: 1.125rem;
+    max-width: 36rem;
+}
+
+.section-dark .section-intro,
+.section-ink .section-intro {
+    color: rgba(253, 224, 193, 0.8);
+}
+
+.text-center .section-intro {
+    margin-inline: auto;
+}
+
+/* orange words with a soft underline */
+.highlight {
+    position: relative;
+    color: var(--orange);
+    white-space: nowrap;
+}
+
+.highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.02em;
+    height: 0.12em;
+    border-radius: 1em;
+    background-color: rgba(200, 80, 30, 0.3);
+}
+
+/* page header for the inner pages */
+.page-head {
+    padding-block: 3rem 2.5rem;
+}
+
+.page-title {
+    font-size: clamp(2.5rem, 7vw, 4.75rem);
+    letter-spacing: -0.035em;
+    margin-bottom: 1.25rem;
+}
+
+
+/* ---------- 4. Navigation (Bootstrap navbar with our colours) ---------- */
+
+.site-header {
+    background-color: rgba(253, 224, 193, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+}
+
+.navbar {
+    --bs-navbar-padding-y: 0.85rem;
+    --bs-navbar-color: var(--ink);
+    --bs-navbar-hover-color: var(--red);
+    --bs-navbar-active-color: var(--red);
+    --bs-navbar-nav-link-padding-x: 0.9rem;
+    --bs-navbar-toggler-border-color: var(--maroon);
+    --bs-navbar-toggler-border-radius: 999px;
+    --bs-navbar-toggler-focus-width: 0.2rem;
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%236e0402' stroke-linecap='round' stroke-width='2.5' d='M5 8h20M5 15h20M5 22h20'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler {
+    border-width: 2px;
+}
+
+.navbar .nav-link {
+    font-weight: 600;
+}
+
+/* the logo: a smiling paper bag + the name */
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--maroon);
+}
+
+.brand:hover {
+    color: var(--maroon);
+}
+
+.brand span {
+    color: var(--orange);
+}
+
+.brand-icon {
+    width: 2rem;
+    height: 2rem;
+    color: var(--red);
+    transition: transform 0.3s ease;
+}
+
+.brand:hover .brand-icon {
+    transform: rotate(-12deg) scale(1.1);
+}
+
+/* the smile on the bag has the colour of the background */
+.brand-smile {
+    stroke: var(--peach);
+}
+
+/* phone and tablet: the opened menu gets some space */
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        padding-block: 1rem 0.5rem;
+    }
+
+    .navbar-nav .btn {
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+}
+
+/* laptop: a line grows under the link you point at and under the current page */
+@media (min-width: 992px) {
+    .navbar .nav-link {
+        position: relative;
+    }
+
+    .navbar .nav-link::after {
+        content: "";
+        position: absolute;
+        left: var(--bs-navbar-nav-link-padding-x);
+        right: var(--bs-navbar-nav-link-padding-x);
+        bottom: 0.25rem;
+        height: 2px;
+        background-color: currentColor;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s ease;
+    }
+
+    .navbar .nav-link:hover::after,
+    .navbar .nav-link.active::after {
+        transform: scaleX(1);
+    }
+}
+
+
+/* ---------- 5. Buttons (Bootstrap .btn with our variables) ---------- */
+
+.btn-brand,
+.btn-ghost,
+.btn-cream,
+.btn-outline-cream,
+.chip {
+    --bs-btn-padding-x: 1.4rem;
+    --bs-btn-padding-y: 0.7rem;
+    --bs-btn-font-weight: 700;
+    --bs-btn-border-width: 2px;
+    --bs-btn-border-radius: 999px;
+    --bs-btn-focus-shadow-rgb: 200, 80, 30;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-brand.btn-lg,
+.btn-ghost.btn-lg,
+.btn-cream.btn-lg,
+.btn-outline-cream.btn-lg {
+    --bs-btn-padding-x: 1.8rem;
+    --bs-btn-padding-y: 0.9rem;
+}
+
+.btn-brand:hover,
+.btn-ghost:hover,
+.btn-cream:hover,
+.btn-outline-cream:hover {
+    transform: translateY(-2px);
+}
+
+/* red filled button - the main action */
+.btn-brand {
+    --bs-btn-color: var(--peach);
+    --bs-btn-bg: var(--red);
+    --bs-btn-border-color: var(--red);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--maroon);
+    --bs-btn-hover-border-color: var(--maroon);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--maroon);
+    --bs-btn-active-border-color: var(--maroon);
+    box-shadow: 0 6px 18px rgba(149, 6, 3, 0.25);
+}
+
+/* outline button for the second action */
+.btn-ghost {
+    --bs-btn-color: var(--maroon);
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: var(--maroon);
+    --bs-btn-hover-color: var(--peach);
+    --bs-btn-hover-bg: var(--maroon);
+    --bs-btn-hover-border-color: var(--maroon);
+    --bs-btn-active-color: var(--peach);
+    --bs-btn-active-bg: var(--maroon);
+    --bs-btn-active-border-color: var(--maroon);
+}
+
+/* light button on dark sections */
+.btn-cream {
+    --bs-btn-color: var(--maroon);
+    --bs-btn-bg: var(--peach);
+    --bs-btn-border-color: var(--peach);
+    --bs-btn-hover-color: var(--maroon);
+    --bs-btn-hover-bg: #fff;
+    --bs-btn-hover-border-color: #fff;
+    --bs-btn-active-color: var(--maroon);
+    --bs-btn-active-bg: #fff;
+    --bs-btn-active-border-color: #fff;
+}
+
+/* light outline button on dark sections */
+.btn-outline-cream {
+    --bs-btn-color: var(--peach);
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: rgba(253, 224, 193, 0.6);
+    --bs-btn-hover-color: var(--maroon);
+    --bs-btn-hover-bg: var(--peach);
+    --bs-btn-hover-border-color: var(--peach);
+    --bs-btn-active-color: var(--maroon);
+    --bs-btn-active-bg: var(--peach);
+    --bs-btn-active-border-color: var(--peach);
+}
+
+/* small round toggle: a radio or a checkbox (.btn-check) with a label that looks like a pill */
+.chip {
+    --bs-btn-padding-x: 1.1rem;
+    --bs-btn-padding-y: 0.45rem;
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--maroon);
+    --bs-btn-bg: #fff;
+    --bs-btn-border-color: var(--line);
+    --bs-btn-hover-color: var(--maroon);
+    --bs-btn-hover-bg: #fff;
+    --bs-btn-hover-border-color: var(--maroon);
+    --bs-btn-active-color: var(--peach);
+    --bs-btn-active-bg: var(--maroon);
+    --bs-btn-active-border-color: var(--maroon);
+}
+
+/* "Download for iPhone / Android" buttons */
+.store-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.store-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1.25rem 0.6rem 1rem;
+    border-radius: 1rem;
+    background-color: var(--ink);
+    color: var(--peach);
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.store-btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--maroon);
+    color: #fff;
+}
+
+.store-btn svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex: none;
+}
+
+.store-btn small {
+    display: block;
+    font-size: 0.7rem;
+    line-height: 1;
+    opacity: 0.75;
+}
+
+.store-btn strong {
+    display: block;
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
+.section-dark .store-btn {
+    background-color: var(--peach);
+    color: var(--maroon);
+}
+
+.section-dark .store-btn:hover {
+    background-color: #fff;
+}
+
+
+/* ---------- 6. Bag card (Bootstrap card, used on Home, Find a bag and Partner story) ---------- */
+
+.bag-card {
+    --bs-card-border-width: 0;
+    --bs-card-border-radius: var(--radius);
+    --bs-card-inner-border-radius: var(--radius);
+    --bs-card-bg: #fff;
+    --bs-card-color: var(--ink);
+    --bs-card-cap-bg: transparent;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bag-card:hover {
+    transform: translateY(-6px) rotate(-0.6deg);
+    box-shadow: 0 18px 40px rgba(31, 20, 16, 0.25);
+}
+
+/* the photo of the bag; grid + place-items keep the "Sold out" stamp in the centre */
+.bag-media {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 11rem;
+    overflow: hidden;
+    background-color: var(--peach);
+}
+
+/* the photo fills the whole box; object-fit: cover cuts the extra parts instead of stretching it */
+.bag-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.bag-card:hover .bag-photo {
+    transform: scale(1.06);
+}
+
+.bag-left {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    background-color: #fff;
+    color: var(--red);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+}
+
+.bag-store {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+}
+
+/* two classes, so it is stronger than the light headings of .section-dark */
+.bag-card .bag-title {
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+}
+
+.bag-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.bag-price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0;
+}
+
+.bag-price strong {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--red);
+}
+
+.bag-price s {
+    color: var(--text);
+    opacity: 0.7;
+}
+
+.bag-foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 0.75rem;
+    border-top: 1px dashed var(--line);
+    font-size: 0.875rem;
+    color: var(--text);
+}
+
+/* sold out: grey picture with a rotated stamp, no hover jump */
+.bag-card.is-sold .bag-media {
+    filter: grayscale(1);
+}
+
+.bag-card.is-sold:hover {
+    transform: none;
+}
+
+.sold-stamp {
+    position: absolute;
+    padding: 0.3rem 1rem;
+    border: 3px solid #fff;
+    border-radius: 0.5rem;
+    color: #fff;
+    background-color: rgba(31, 20, 16, 0.55);
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transform: rotate(-10deg);
+}
+
+
+/* ---------- 7. Steps "how it works" (Home and For business) ---------- */
+
+.steps {
+    display: grid;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.step {
+    position: relative;
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
+    background-color: var(--cream);
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease;
+}
+
+.section-cream .step {
+    background-color: #fff;
+}
+
+.step:hover {
+    transform: translateY(-4px);
+}
+
+.step-num {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    color: var(--orange);
+}
+
+.step-icon {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 1rem 0;
+    border-radius: 50%;
+    background-color: var(--peach);
+    font-size: 2rem;
+}
+
+.step h3 {
+    font-size: 1.6rem;
+}
+
+.step p {
+    color: var(--text);
+    margin-bottom: 0;
+}
+
+/* tablet and laptop: 3 in a row with a round arrow between the steps */
+@media (min-width: 768px) {
+    .steps {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        right: -1.75rem;
+        display: grid;
+        place-items: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: var(--red);
+        color: var(--peach);
+        font-weight: 700;
+        transform: translateY(-50%);
+    }
+}
+
+
+/* ---------- 8. FAQ (Bootstrap accordion with a + icon) ---------- */
+
+.faq-accordion {
+    --bs-accordion-bg: #fff;
+    --bs-accordion-color: var(--text);
+    --bs-accordion-border-color: transparent;
+    --bs-accordion-border-radius: var(--radius);
+    --bs-accordion-inner-border-radius: var(--radius);
+    --bs-accordion-btn-padding-y: 1.25rem;
+    --bs-accordion-btn-color: var(--ink);
+    --bs-accordion-active-color: var(--maroon);
+    --bs-accordion-active-bg: #fff;
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem rgba(200, 80, 30, 0.3);
+    --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23950603' stroke-width='2' stroke-linecap='round'%3e%3cpath d='M8 2v12M2 8h12'/%3e%3c/svg%3e");
+    --bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);
+    --bs-accordion-btn-icon-transform: rotate(45deg); /* the + turns into × */
+}
+
+.faq-accordion .accordion-item {
+    margin-bottom: 0.75rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(110, 4, 2, 0.08);
+}
+
+.faq-accordion .accordion-button {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+
+/* ---------- 9. Call to action at the end of a page ---------- */
+
+.cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* two big rings in the background */
+.cta::before,
+.cta::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 34rem;
+    height: 34rem;
+    border: 4rem solid rgba(253, 224, 193, 0.06);
+    border-radius: 50%;
+}
+
+.cta::before {
+    left: -14rem;
+    bottom: -18rem;
+}
+
+.cta::after {
+    right: -12rem;
+    top: -16rem;
+}
+
+.cta-title {
+    font-size: clamp(2.5rem, 8vw, 5.25rem);
+    letter-spacing: -0.035em;
+    margin-bottom: 1.25rem;
+}
+
+.cta-title span {
+    display: block;
+    color: var(--apricot);
+}
+
+.cta .store-buttons {
+    justify-content: center;
+}
+
+
+/* ---------- 10. Footer ---------- */
+
+.site-footer {
+    padding-block: 4rem 2rem;
+    background-color: var(--ink);
+    color: rgba(253, 224, 193, 0.75);
+}
+
+.site-footer .brand {
+    color: var(--peach);
+    margin-bottom: 1rem;
+}
+
+.site-footer .brand-icon {
+    color: var(--apricot);
+}
+
+.site-footer .brand-smile {
+    stroke: var(--ink);
+}
+
+.footer-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.footer-title {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--apricot);
+    margin-bottom: 1rem;
+}
+
+.footer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-list li + li {
+    margin-top: 0.4rem;
+}
+
+.site-footer a {
+    color: var(--peach);
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: var(--apricot);
+    text-decoration: underline;
+}
+
+.site-footer address {
+    margin-bottom: 0;
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(253, 224, 193, 0.15);
+    font-size: 0.85rem;
+}
+
+.footer-bottom p {
+    margin-bottom: 0.4rem;
+}
+
+/* tablet: 2 columns, laptop: brand column is wider than the 3 link columns */
+@media (min-width: 576px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    }
+}
+
+
+/* ---------- 11. Small helpers ---------- */
+
+/* small dot for "live" labels */
+.live-dot {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--apricot);
+    vertical-align: middle;
+}
