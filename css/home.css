@@ -1,319 +1,91 @@
 /* Home page */
 
-
-/* ---------- Hero ---------- */
-
-.hero {
-    position: relative;
-    isolation: isolate; /* the glow with z-index: -1 stays inside the hero */
-    overflow: hidden;
-    padding-block: 2.5rem 4rem;
+.hero h1 {
+    font-size: 2.5rem;
 }
 
-/* soft orange glow behind the phone */
-.hero::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -10rem;
-    right: -14rem;
-    width: 44rem;
-    height: 44rem;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200, 80, 30, 0.22), transparent 65%);
+/* How it works: Bootstrap carousel on a red background */
+.how {
+    background-color: var(--red);
+    color: var(--cream);
 }
 
-.hero-title {
-    font-size: clamp(2.75rem, 8vw, 5.25rem);
-    letter-spacing: -0.04em;
-    line-height: 0.95;
-    margin-bottom: 1.5rem;
+.how h2 {
+    color: var(--cream);
+    font-size: 2.5rem;
+    text-transform: uppercase;
 }
 
-.hero-lead {
-    color: var(--text);
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
-    max-width: 34rem;
-    margin-bottom: 2rem;
-}
-
-.hero-note {
-    margin: 1.25rem 0 0;
-    color: var(--text);
-    font-size: 0.9rem;
-}
-
-
-/* ---------- The phone in the hero (only HTML and CSS, no picture) ---------- */
-
-.hero-visual {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    padding: 2rem 0 1rem;
-}
-
-.phone {
-    position: relative;
-    width: min(100%, 18.5rem);
-    padding: 2.25rem 1rem 1.25rem;
-    border: 0.6rem solid var(--ink);
-    border-radius: 2.75rem;
-    background-color: var(--cream);
-    box-shadow: 0 30px 60px rgba(110, 4, 2, 0.25);
-    transform: rotate(4deg);
-    transition: transform 0.4s ease;
-}
-
-.hero-visual:hover .phone {
-    transform: rotate(0deg) scale(1.02);
-}
-
-/* the camera notch */
-.phone::before {
-    content: "";
-    position: absolute;
-    top: 0.6rem;
-    left: 50%;
-    width: 5rem;
-    height: 1.1rem;
-    border-radius: 1rem;
-    background-color: var(--ink);
-    transform: translateX(-50%);
-}
-
-.phone-top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.phone-bag {
-    padding: 0.75rem;
-    border-radius: 1.25rem;
-    background-color: #fff;
-    box-shadow: 0 6px 16px rgba(110, 4, 2, 0.1);
-}
-
-.phone-bag-media {
-    height: 7rem;
-    margin-bottom: 0.75rem;
-    border-radius: 0.9rem;
-}
-
-.phone-bag-title {
-    margin-bottom: 0.25rem;
-    color: var(--ink);
-    font-family: var(--font-display);
-    font-size: 1.2rem;
+.how-label {
+    color: var(--peach);
     font-weight: 800;
+    text-transform: uppercase;
 }
 
-.phone-time {
-    margin: 0.5rem 0 0.75rem;
-    color: var(--text);
-    font-size: 0.85rem;
+/* arrows and dots in one row under the text */
+.how-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-.phone .live-dot {
-    background-color: var(--orange);
-}
-
-.phone-code {
-    margin: 0.75rem 0 0;
-    padding: 0.6rem;
-    border: 2px dashed var(--line);
-    border-radius: 1rem;
-    color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    text-align: center;
-}
-
-.phone-code strong {
-    display: block;
-    color: var(--maroon);
-    font-size: 1.5rem;
-    letter-spacing: 0.3em;
-}
-
-/* stickers around the phone */
-.sticker {
-    position: absolute;
-    z-index: 1;
-    padding: 0.5rem 1rem;
-    border-radius: 999px;
-    font-family: var(--font-display);
-    font-weight: 800;
-    box-shadow: 0 10px 24px rgba(31, 20, 16, 0.2);
-}
-
-.sticker-sale {
-    top: 0.5rem;
-    left: 0;
-    background-color: var(--orange);
-    color: #fff;
-    font-size: 1.6rem;
-    rotate: -12deg;
-}
-
-.sticker-co2 {
-    right: 0;
-    bottom: 3rem;
-    background-color: var(--leaf);
-    color: #fff;
-    font-size: 0.95rem;
-    rotate: 6deg;
-}
-
-.sticker-emoji {
-    padding: 0;
+.how-controls button {
     background: none;
-    box-shadow: none;
-    font-size: 2.75rem;
+    border: none;
+    color: var(--peach);
+    font-size: 1.5rem;
 }
 
-.sticker-bread {
-    top: 45%;
-    left: 3%;
-}
-
-.sticker-donut {
-    top: 0.5rem;
-    right: 8%;
-}
-
-
-/* ---------- Live bags ---------- */
-
-.live-head {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-}
-
-.section-dark .bag-card {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-
-/* ---------- Two sides ---------- */
-
-.sides-grid {
-    display: grid;
-    gap: 1px;
-    overflow: hidden;
-    border-radius: var(--radius);
-    background-color: rgba(253, 224, 193, 0.18); /* shows through the gap as a thin line */
-}
-
-.side {
-    padding: 2.5rem 1.75rem;
-    background-color: var(--ink);
-    transition: background-color 0.3s ease;
-}
-
-.side:hover {
-    background-color: #2b1c16;
-}
-
-.side-emoji {
-    display: inline-block;
-    font-size: 3rem;
-    transition: transform 0.3s ease;
-}
-
-.side:hover .side-emoji {
-    transform: translateY(-6px) rotate(-8deg);
-}
-
-.side h3 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-block: 0.5rem 1rem;
-}
-
-.side p {
-    max-width: 26rem;
-    margin-bottom: 1.5rem;
-    color: rgba(253, 224, 193, 0.75);
-}
-
-@media (min-width: 768px) {
-    .sides-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .side {
-        padding: 3.5rem 3rem;
-    }
-}
-
-
-/* ---------- Why it matters ---------- */
-
-.saving {
-    display: inline-block;
-    margin: 0.5rem 0 0;
-    padding: 0.9rem 1.25rem;
-    border-radius: 1rem;
-    background-color: rgba(253, 224, 193, 0.1);
-    font-size: 1.05rem;
-}
-
-.saving strong {
-    color: var(--apricot);
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin: 0 0 1rem;
+.how-controls .dot {
+    width: 10px;
+    height: 10px;
     padding: 0;
-    list-style: none;
+    border-radius: 50%;
+    background-color: var(--peach);
+    opacity: 0.4;
 }
 
-.stat {
-    padding: 1.5rem 1rem;
-    border: 1px solid rgba(253, 224, 193, 0.2);
-    border-radius: var(--radius);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+.how-controls .dot.active {
+    opacity: 1;
 }
 
-.stat:hover {
-    background-color: rgba(253, 224, 193, 0.06);
-    transform: translateY(-4px);
+/* two photos: the small one lies on the corner of the big one */
+.how-photos {
+    position: relative;
+    max-width: 30rem;
+    margin-left: auto;
+    padding: 0 0 3rem 3rem;
 }
 
-.stat-number {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--apricot);
-    font-family: var(--font-display);
-    font-size: clamp(1.75rem, 5vw, 3.25rem);
-    font-weight: 800;
-    line-height: 1;
+.how-big {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
-.stat-label {
-    color: rgba(253, 224, 193, 0.8);
-    font-size: 0.95rem;
+.how-small {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 45%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
-.impact-source {
-    margin: 0;
-    color: rgba(253, 224, 193, 0.6);
-    font-size: 0.85rem;
+/* FAQ: our colours instead of the Bootstrap blue */
+.accordion {
+    --bs-accordion-active-bg: var(--peach);
+    --bs-accordion-active-color: var(--red);
+    --bs-accordion-btn-focus-box-shadow: none;
 }
 
+/* from 768px: bigger headings */
 @media (min-width: 768px) {
-    .stat {
-        padding: 2rem 1.5rem;
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .how h2 {
+        font-size: 3.5rem;
     }
 }
