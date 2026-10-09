@@ -1,264 +1,45 @@
 /* Find a bag page */
 
-
-/* ---------- Quick facts (Flexbox) ---------- */
-
-.facts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.card {
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.2s;
 }
 
-.fact {
-    flex: 1 1 8rem; /* grow and shrink, but not narrower than 8rem: then the item goes to a new line */
-    padding: 1rem 1.25rem;
-    border-radius: var(--radius);
-    background-color: var(--cream);
-    color: var(--text);
-    font-size: 0.9rem;
-    line-height: 1.3;
+/* the card moves up a little when you point at it */
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.fact strong {
-    display: block;
-    color: var(--maroon);
-    font-family: var(--font-display);
-    font-size: 2rem;
-    line-height: 1.1;
+.card img {
+    height: 200px;
+    object-fit: cover;
 }
 
-
-/* ---------- Category filter (CSS only) ---------- */
-
-.filters {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
+.card-title {
+    font-size: 1.3rem;
 }
 
-.filters-legend {
-    margin-bottom: 0.5rem;
-    color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-}
-
-.chip-count {
-    display: inline-block;
-    min-width: 1.5rem;
-    margin-left: 0.25rem;
-    padding: 0 0.4rem;
-    border-radius: 999px;
-    background-color: var(--peach);
-    font-size: 0.75rem;
-}
-
-.btn-check:checked + .chip .chip-count {
-    background-color: var(--orange);
-    color: #fff;
-}
-
-/* if the "Bakery" radio inside .finder is checked, hide every card that is not bakery; the same for the rest */
-.finder:has(#cat-bakery:checked) .bag-list > :not([data-category="bakery"]),
-.finder:has(#cat-meals:checked) .bag-list > :not([data-category="meals"]),
-.finder:has(#cat-grocery:checked) .bag-list > :not([data-category="grocery"]),
-.finder:has(#cat-sweets:checked) .bag-list > :not([data-category="sweets"]),
-.finder:has(#cat-coffee:checked) .bag-list > :not([data-category="coffee"]) {
-    display: none;
-}
-
-/* tip under the cards */
-.tip {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-top: 2.5rem;
-    padding: 1.25rem 1.5rem;
-    border: 2px dashed var(--orange);
-    border-radius: var(--radius);
-    background-color: var(--cream);
-    color: var(--text);
-}
-
-.tip-emoji {
-    font-size: 2rem;
-    line-height: 1;
-}
-
-
-/* ---------- Pickup table ---------- */
-
-.table-card {
-    padding: 0.5rem;
-    border-radius: var(--radius);
-    background-color: #fff;
-    box-shadow: var(--shadow);
-}
-
-.schedule {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.schedule caption {
-    caption-side: top;
-    padding: 1rem 1rem 0.75rem;
-    color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.schedule th,
-.schedule td {
-    padding: 0.85rem 1rem;
-    text-align: left;
-}
-
-.schedule thead th {
-    background-color: var(--maroon);
-    color: var(--peach);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-/* round corners for the header row */
-.schedule thead th:first-child {
-    border-radius: 1rem 0 0 1rem;
-}
-
-.schedule thead th:last-child {
-    border-radius: 0 1rem 1rem 0;
-}
-
-.schedule tbody tr {
-    border-bottom: 1px dashed var(--line);
-    transition: background-color 0.2s ease;
-}
-
-.schedule tbody tr:hover {
-    background-color: var(--cream);
-}
-
-.schedule tbody th {
-    color: var(--ink);
-    font-family: var(--font-display);
-    font-weight: 700;
-}
-
-.schedule td[data-label="Price"] {
-    color: var(--red);
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.schedule td[data-label="Pick up"] {
-    white-space: nowrap;
-}
-
-.left-low {
-    display: inline-block;
-    padding: 0 0.5rem;
-    border-radius: 999px;
-    background-color: var(--orange);
-    color: #fff;
-    font-weight: 700;
-}
-
-.schedule .is-sold {
-    opacity: 0.5;
-}
-
-.schedule .is-sold th,
-.schedule .is-sold td[data-label="Price"] {
-    text-decoration: line-through;
-}
-
-.schedule tfoot th,
-.schedule tfoot td {
-    border-top: 2px solid var(--maroon);
-    color: var(--maroon);
-    font-family: var(--font-display);
-    font-size: 1.1rem;
+.price {
     font-weight: 800;
+    color: var(--red);
 }
 
-/* phone: no room for 5 columns, so every row becomes a small card and each cell shows its own label */
-@media (max-width: 767.98px) {
-    .schedule,
-    .schedule caption,
-    .schedule tbody,
-    .schedule tr,
-    .schedule th,
-    .schedule td {
-        display: block;
-    }
+/* the old price is grey and crossed out */
+.price s {
+    font-weight: 400;
+    color: gray;
+}
 
-    /* the header row is hidden on screen, but screen readers still read it */
-    .schedule thead {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip-path: inset(50%);
-        white-space: nowrap;
-    }
+/* table */
+.table {
+    --bs-table-bg: white;
+}
 
-    .schedule tbody tr {
-        padding: 0.9rem 0.75rem;
-    }
-
-    .schedule tbody th {
-        padding: 0 0 0.35rem;
-        font-size: 1.15rem;
-    }
-
-    .schedule td {
-        padding: 0.15rem 0;
-    }
-
-    /* the text of data-label="..." is shown before the value */
-    .schedule td::before {
-        content: attr(data-label);
-        display: inline-block;
-        width: 5.5rem;
-        color: var(--text);
-        font-family: var(--font-mono);
-        font-size: 0.72rem;
-        font-weight: 500;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-    }
-
-    .schedule tfoot {
-        display: block;
-    }
-
-    .schedule tfoot tr {
-        display: flex;
-        justify-content: space-between;
-        padding: 0.9rem 0.75rem;
-        border-top: 2px solid var(--maroon);
-    }
-
-    .schedule tfoot th,
-    .schedule tfoot td {
-        padding: 0;
-        border: 0;
-    }
-
-    .schedule tfoot td::before {
-        content: none;
+/* phone: smaller text, so the 4 columns fit */
+@media (max-width: 575px) {
+    .table {
+        font-size: 0.85rem;
     }
 }
