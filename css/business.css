@@ -1,26 +1,91 @@
 /* For business page */
 
-.join-form {
-    background-color: white;
+.why {
+    padding: 0;
+    list-style: none;
+}
+
+.why li {
+    margin-bottom: 0.75rem;
+    padding: 1rem 1.25rem;
     border-radius: 1rem;
-    padding: 1.5rem;
+    background-color: white;
+    font-weight: 600;
+    transition: transform 0.2s;
 }
 
-.join-form legend {
-    font-weight: 800;
-    color: var(--red);
+.why li:hover {
+    transform: translateX(6px);
 }
 
-/* the field gets our colour when you click into it */
-.join-form .form-control:focus,
-.join-form .form-select:focus {
-    border-color: var(--red);
+/* calculator on a dark background */
+.calc {
+    background-color: var(--dark);
+    color: var(--cream);
+}
+
+.calc h2 {
+    color: var(--peach);
+}
+
+.calc .form-control:focus {
+    border-color: var(--orange);
     box-shadow: none;
 }
 
-/* laptop: more space inside the form */
-@media (min-width: 992px) {
-    .join-form {
-        padding: 2.5rem;
-    }
+.calc .invalid-feedback {
+    color: var(--peach);
+}
+
+.calc-result {
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--red);
+    text-align: center;
+}
+
+.calc-result p {
+    margin: 0;
+}
+
+.calc-result strong {
+    display: block;
+    font-size: 2.75rem;
+    color: var(--peach);
+}
+
+
+.partner-total {
+    font-weight: 600;
+}
+
+.partner {
+    height: 100%;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    background-color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.partner:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(155, 28, 28, 0.15);
+}
+
+.partner h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+}
+
+.partner p {
+    margin: 0;
+    color: var(--gray);
+}
+
+.partner strong {
+    color: var(--orange);
+}
+
+.join {
+    background-color: var(--peach);
 }

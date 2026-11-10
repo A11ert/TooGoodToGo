@@ -36,45 +36,119 @@
 <main>
     <section>
         <div class="container">
-            <h1>For business</h1>
-            <p>Sell the food you did not sell today. Joining is free.</p>
-            <div class="row g-4">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <h1>Sell your leftovers, <span class="highlight">not bin them</span></h1>
+                    <p>Joining is free. You set the price and the pickup time, we bring the customers.</p>
+                    <a class="btn btn-brand js-scroll" href="#join">Join now</a>
+                </div>
                 <div class="col-lg-5">
-                    <h2>Why join</h2>
-                    <ul>
-                        <li>Earn money from leftovers</li>
-                        <li>Get new customers</li>
-                        <li>Throw away less food</li>
+                    <ul class="why">
+                        <li>💰 Earn money from leftovers</li>
+                        <li>🙋 Get new customers</li>
+                        <li>🌍 Throw away less food</li>
                     </ul>
                 </div>
-                <div class="col-lg-7">
-                    <!-- Form with Bootstrap fields -->
-                    <form class="join-form">
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator: how much a partner earns in a month (js/business.js) -->
+    <section class="calc">
+        <div class="container">
+            <h2>How much can you earn?</h2>
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="calc-bags" class="form-label">Bags you can sell per day</label>
+                        <input type="number" id="calc-bags" class="form-control" value="5" min="1" max="50">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="calc-price" class="form-label">Price of one bag, ₸</label>
+                        <input type="number" id="calc-price" class="form-control" value="1000" min="300" max="5000" step="100">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="calc-result" id="calc-result" aria-live="polite">
+                        <p>In a month you earn</p>
+                        <strong id="calc-money">150 000 ₸</strong>
+                        <p id="calc-food">and save 150 kg of food from the bin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners: made by JavaScript from an array -->
+    <section>
+        <div class="container">
+            <h2>Our partners</h2>
+            <div class="filters" id="partner-filters">
+                <button type="button" class="btn btn-line active" data-type="all">All</button>
+                <button type="button" class="btn btn-line" data-type="Bakery">Bakeries</button>
+                <button type="button" class="btn btn-line" data-type="Café">Cafés</button>
+                <button type="button" class="btn btn-line" data-type="Restaurant">Restaurants</button>
+                <button type="button" class="btn btn-line" data-type="Shop">Shops</button>
+            </div>
+            <p class="partner-total" id="partner-total"></p>
+            <div class="row g-3" id="partner-list"></div>
+        </div>
+    </section>
+
+    <!-- Join form -->
+    <section id="join" class="join">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form class="site-form" id="join-form" novalidate>
                         <fieldset>
                             <legend>Join as a partner</legend>
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Business name</label>
-                                <input type="text" id="name" name="name" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="type" class="form-label">Type</label>
-                                <select id="type" name="type" class="form-select">
-                                    <option>Bakery</option>
-                                    <option>Café</option>
-                                    <option>Restaurant</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea id="message" name="message" class="form-control" rows="3"></textarea>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="j-name" class="form-label">Business name</label>
+                                    <input type="text" id="j-name" class="form-control" autocomplete="organization">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="j-type" class="form-label">Type</label>
+                                    <select id="j-type" class="form-select">
+                                        <option value="">Choose a type</option>
+                                        <option>Bakery</option>
+                                        <option>Café</option>
+                                        <option>Restaurant</option>
+                                        <option>Shop</option>
+                                    </select>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="j-email" class="form-label">Email</label>
+                                    <input type="email" id="j-email" class="form-control" autocomplete="email">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="j-phone" class="form-label">Phone</label>
+                                    <input type="tel" id="j-phone" class="form-control" placeholder="+7 701 234 56 78" autocomplete="tel">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="j-bags" class="form-label">Bags per day</label>
+                                    <input type="number" id="j-bags" class="form-control" min="1" max="50">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <div class="form-check">
+                                        <input type="checkbox" id="j-agree" class="form-check-input">
+                                        <label for="j-agree" class="form-check-label">I agree to keep the food fresh and safe</label>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-brand">Send</button>
                         </fieldset>
                     </form>
+                    <p class="success" id="join-success" role="status"></p>
                 </div>
             </div>
         </div>
@@ -83,12 +157,19 @@
 
 <footer>
     <div class="container">
-        <p>© 2026 Too Good To Go Astana</p>
+        <p>© 2026 Too Good To Go Astana · student project, AITU</p>
+        <p class="credits">Photos: Wikimedia Commons ·
+            Bootstrap 5.3 and jQuery 3.7 · texts and parts of the code written with help of an AI assistant (Claude) ·
+            <a href="https://github.com/A11ert/TooGoodToGo#credits">all credits</a></p>
     </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="js/business.js"></script>
 </body>
 </html>
