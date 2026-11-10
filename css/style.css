@@ -4,7 +4,14 @@
     --cream: #fdf6ee;
     --peach: #fde0c1;
     --red: #9b1c1c;
+    --orange: #c8501e;
     --dark: #2b1d16;
+    --gray: #6b5a50;
+}
+
+/* Bootstrap turns on smooth scrolling; we scroll with jQuery animate(), so it is turned off here */
+:root {
+    scroll-behavior: auto;
 }
 
 /* Flexbox column: main takes the free space, so the footer is always at the bottom */
@@ -30,7 +37,23 @@ section {
     padding: 2.5rem 0;
 }
 
-/* menu */
+/* orange words in the big headings */
+.highlight {
+    color: var(--orange);
+}
+
+/* visible focus for the Tab key on every link, button and field */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+/* menu: the current page is red and underlined */
 .navbar {
     background-color: var(--peach);
     --bs-navbar-active-color: var(--red);
@@ -41,6 +64,12 @@ section {
     color: var(--red);
 }
 
+.nav-link.active {
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
 /* main button: Bootstrap reads these variables */
 .btn-brand {
     --bs-btn-bg: var(--red);
@@ -49,8 +78,122 @@ section {
     --bs-btn-hover-color: white;
     --bs-btn-active-bg: var(--dark);
     --bs-btn-active-color: white;
+    --bs-btn-disabled-bg: var(--gray);
+    --bs-btn-disabled-color: white;
     border-radius: 2rem;
     padding: 0.6rem 1.5rem;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+/* light button with a border (filters, small actions) */
+.btn-line {
+    --bs-btn-color: var(--red);
+    --bs-btn-border-color: var(--red);
+    --bs-btn-hover-bg: var(--red);
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-border-color: var(--red);
+    --bs-btn-active-bg: var(--red);
+    --bs-btn-active-color: white;
+    border-radius: 2rem;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+/* hover: buttons move up a little */
+.btn-brand:hover,
+.btn-line:hover {
+    transform: translateY(-2px);
+}
+
+/* filter buttons in a row, they go to the next line on a phone */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* the chosen filter button */
+.btn-line.active {
+    background-color: var(--red);
+    color: white;
+}
+
+/* card used on several pages: white, round, lifts on hover */
+.food-card {
+    height: 100%;
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(155, 28, 28, 0.15);
+}
+
+.food-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.food-card-body {
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.food-card h3 {
+    font-size: 1.25rem;
+}
+
+.price {
+    font-weight: 800;
+    color: var(--red);
+}
+
+/* the old price is gray and crossed out */
+.price s {
+    font-weight: 400;
+    color: var(--gray);
+}
+
+/* "nothing found" and "empty bag" messages */
+.empty {
+    padding: 1.5rem;
+    border: 2px dashed var(--peach);
+    border-radius: 1rem;
+    text-align: center;
+    color: var(--gray);
+}
+
+/* forms: white box, our colours for errors */
+.site-form {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    --bs-form-invalid-color: var(--red);
+    --bs-form-invalid-border-color: var(--red);
+}
+
+.site-form legend {
+    font-weight: 800;
+    color: var(--red);
+}
+
+.site-form .form-control:focus,
+.site-form .form-select:focus {
+    border-color: var(--orange);
+}
+
+/* green message after a correct submit, hidden at the start */
+.success {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #e3f1e8;
+    color: #1f5a3a;
+    font-weight: 600;
 }
 
 footer {
@@ -65,9 +208,25 @@ footer p {
     margin: 0;
 }
 
+footer .credits {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+footer a {
+    color: var(--peach);
+}
+
 /* more space between sections on bigger screens */
 @media (min-width: 768px) {
     section {
         padding: 4rem 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .site-form {
+        padding: 2.5rem;
     }
 }
