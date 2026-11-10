@@ -1,45 +1,56 @@
 /* Find a bag page */
 
-.card {
-    border: none;
+.finder {
+    margin-bottom: 1rem;
+    padding: 1.25rem;
     border-radius: 1rem;
-    overflow: hidden;
-    transition: transform 0.2s;
+    background-color: var(--peach);
 }
 
-/* the card moves up a little when you point at it */
-.card:hover {
-    transform: translateY(-5px);
+.finder .form-control:focus,
+.finder .form-select:focus {
+    border-color: var(--orange);
+    box-shadow: none;
 }
 
-.card img {
-    height: 200px;
-    object-fit: cover;
+.result-info {
+    font-weight: 600;
 }
 
-.card-title {
-    font-size: 1.3rem;
+/* the photo with a badge "3 left" in the corner */
+.bag-photo {
+    position: relative;
 }
 
-.price {
+.badge-left {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    background-color: var(--orange);
+    color: white;
+    font-size: 0.85rem;
     font-weight: 800;
-    color: var(--red);
 }
 
-/* the old price is grey and crossed out */
-.price s {
-    font-weight: 400;
-    color: gray;
+/* only 1 bag left: red badge */
+.badge-left.last {
+    background-color: var(--red);
 }
 
-/* table */
-.table {
-    --bs-table-bg: white;
+.bag-store {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--gray);
 }
 
-/* phone: smaller text, so the 4 columns fit */
-@media (max-width: 575px) {
-    .table {
-        font-size: 0.85rem;
-    }
+.bag-time {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* hidden at the start, jQuery shows it when nothing is found */
+#nothing {
+    display: none;
 }

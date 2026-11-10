@@ -34,93 +34,65 @@
 </header>
 
 <main>
-    <!-- Bags: Bootstrap cards, 1 per row on a phone, 3 from 768px -->
+    <!-- Bags: made by JavaScript from an array (js/bags.js) -->
     <section>
         <div class="container">
-            <h1>Find a bag</h1>
-            <p>Surprise bags you can still pick up tonight.</p>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <article class="card h-100">
-                        <img src="images/doner.jpg" class="card-img-top" alt="Döner wrap">
-                        <div class="card-body">
-                            <h2 class="card-title">Turkish Food</h2>
-                            <p class="card-text">Dinner bag · pick up 22:00–22:45</p>
-                            <p class="price">1 490 ₸ <s>4 500 ₸</s></p>
-                        </div>
-                    </article>
+            <h1>What is left <span class="highlight">tonight?</span></h1>
+            <p>Surprise bags you can still pick up in Astana.</p>
+
+            <!-- search, filter and sort -->
+            <div class="finder row g-3">
+                <div class="col-md-6">
+                    <label for="search" class="form-label">Search</label>
+                    <input type="search" id="search" class="form-control" placeholder="Store or food, e.g. bakery">
                 </div>
-                <div class="col-md-4">
-                    <article class="card h-100">
-                        <img src="images/coffee.jpg" class="card-img-top" alt="Coffee and a pastry">
-                        <div class="card-body">
-                            <h2 class="card-title">Coffee Steppe</h2>
-                            <p class="card-text">Coffee and pastry bag · pick up 18:00–19:00</p>
-                            <p class="price">690 ₸ <s>2 000 ₸</s></p>
-                        </div>
-                    </article>
+                <div class="col-6 col-md-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select id="category" class="form-select">
+                        <option value="all">All</option>
+                        <option value="bakery">Bakery</option>
+                        <option value="meals">Meals</option>
+                        <option value="sweets">Sweets</option>
+                        <option value="grocery">Grocery</option>
+                    </select>
                 </div>
-                <div class="col-md-4">
-                    <article class="card h-100">
-                        <img src="images/cake.jpg" class="card-img-top" alt="A slice of cake">
-                        <div class="card-body">
-                            <h2 class="card-title">Sweet Shanyrak</h2>
-                            <p class="card-text">Cake bag · pick up 20:30–21:30</p>
-                            <p class="price">1 290 ₸ <s>3 900 ₸</s></p>
-                        </div>
-                    </article>
+                <div class="col-6 col-md-3">
+                    <label for="sort" class="form-label">Sort by</label>
+                    <select id="sort" class="form-select">
+                        <option value="time">Pickup time</option>
+                        <option value="cheap">Price: low to high</option>
+                        <option value="discount">Biggest discount</option>
+                    </select>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Table of pickup times -->
-    <section>
-        <div class="container">
-            <h2>Pickup times</h2>
-            <table class="table">
-                <caption>Bags in Astana tonight</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Store</th>
-                        <th scope="col">Pick up</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Bags left</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Coffee Steppe</td>
-                        <td>18:00–19:00</td>
-                        <td>690 ₸</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>Sweet Shanyrak</td>
-                        <td>20:30–21:30</td>
-                        <td>1 290 ₸</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>Turkish Food</td>
-                        <td>22:00–22:45</td>
-                        <td>1 490 ₸</td>
-                        <td>2</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p class="result-info" id="result-info" aria-live="polite"></p>
+
+            <div class="row g-4" id="bag-list"></div>
+
+            <div class="empty" id="nothing">
+                <p>Nothing found. Try another word or category.</p>
+                <button type="button" class="btn btn-line" id="reset">Show all bags</button>
+            </div>
         </div>
     </section>
 </main>
 
 <footer>
     <div class="container">
-        <p>© 2026 Too Good To Go Astana</p>
+        <p>© 2026 Too Good To Go Astana · student project, AITU</p>
+        <p class="credits">Photos: Wikimedia Commons ·
+            Bootstrap 5.3 and jQuery 3.7 · texts and parts of the code written with help of an AI assistant (Claude) ·
+            <a href="https://github.com/A11ert/TooGoodToGo#credits">all credits</a></p>
     </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="js/bags.js"></script>
 </body>
 </html>
