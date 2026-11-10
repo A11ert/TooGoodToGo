@@ -54,3 +54,27 @@
 #nothing {
     display: none;
 }
+
+/* quick facts: 3 numbers in a row (Flexbox) */
+.facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.facts li {
+    flex: 1 1 140px;
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    background-color: var(--dark);
+    color: var(--cream);
+}
+
+.facts strong {
+    display: block;
+    font-size: 2rem;
+    color: var(--peach);
+}

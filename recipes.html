@@ -43,6 +43,36 @@
         </div>
     </section>
 
+    <!-- Storage tips: Flexbox, 1 per row on a phone, 4 in a row on a laptop -->
+    <section class="keep-section">
+        <div class="container">
+            <h2>How long does it last?</h2>
+            <p>Four simple rules for the food from your bag.</p>
+            <ul class="keep">
+                <li>
+                    <span class="keep-icon" aria-hidden="true">🥐</span>
+                    <h3>Bread and pastry</h3>
+                    <p>2 days in a bag, or slice it and freeze it for a month.</p>
+                </li>
+                <li>
+                    <span class="keep-icon" aria-hidden="true">🥗</span>
+                    <h3>Salads and meals</h3>
+                    <p>Eat them the same evening or keep them in the fridge until tomorrow.</p>
+                </li>
+                <li>
+                    <span class="keep-icon" aria-hidden="true">🍰</span>
+                    <h3>Cakes</h3>
+                    <p>In the fridge, in a closed box, for up to 2 days.</p>
+                </li>
+                <li>
+                    <span class="keep-icon" aria-hidden="true">🍎</span>
+                    <h3>Fruit</h3>
+                    <p>Keep bananas away from other fruit: they make it ripe faster.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
     <!-- Form: share your own recipe -->
     <section class="share">
         <div class="container">
@@ -99,10 +129,38 @@
 
 <footer>
     <div class="container">
-        <p>© 2026 Too Good To Go Astana · student project, AITU</p>
-        <p class="credits">Photos: Wikimedia Commons ·
-            Bootstrap 5.3 and jQuery 3.7 · texts and parts of the code written with help of an AI assistant (Claude) ·
-            <a href="https://github.com/A11ert/TooGoodToGo#credits">all credits</a></p>
+        <!-- my own grid: 1 column on a phone, 3 from 768px -->
+        <div class="footer-grid">
+            <div>
+                <p class="footer-brand">Too Good To Go</p>
+                <p>Surprise bags of unsold food from cafés, bakeries and shops in Astana.
+                    Good for your wallet, better for the planet.</p>
+            </div>
+            <nav aria-label="Footer menu">
+                <h2 class="footer-title">Pages</h2>
+                <ul class="footer-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="bags.html">Find a bag</a></li>
+                    <li><a href="recipes.html">Recipes</a></li>
+                    <li><a href="store.html">Partner story</a></li>
+                    <li><a href="business.html">For business</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h2 class="footer-title">Contact</h2>
+                <address>
+                    Astana, Kazakhstan<br>
+                    <a href="mailto:hello@toogoodtogo.kz">hello@toogoodtogo.kz</a><br>
+                    Every day 9:00–23:00
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Too Good To Go Astana · student project, AITU. Not connected to the real Too Good To Go company.</p>
+            <p class="credits">Photos: Wikimedia Commons ·
+                Bootstrap 5.3 and jQuery 3.7 · texts and parts of the code written with help of an AI assistant (Claude) ·
+                <a href="https://github.com/A11ert/TooGoodToGo#credits">all credits</a></p>
+        </div>
     </div>
 </footer>
 

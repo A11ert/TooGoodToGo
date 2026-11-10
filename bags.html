@@ -40,6 +40,13 @@
             <h1>What is left <span class="highlight">tonight?</span></h1>
             <p>Surprise bags you can still pick up in Astana.</p>
 
+            <!-- quick facts: JavaScript counts them from the array -->
+            <ul class="facts">
+                <li><strong id="fact-bags">0</strong> bags left tonight</li>
+                <li><strong id="fact-stores">0</strong> stores near you</li>
+                <li><strong id="fact-last">--:--</strong> the last pickup</li>
+            </ul>
+
             <!-- search, filter and sort -->
             <div class="finder row g-3">
                 <div class="col-md-6">
@@ -80,10 +87,38 @@
 
 <footer>
     <div class="container">
-        <p>© 2026 Too Good To Go Astana · student project, AITU</p>
-        <p class="credits">Photos: Wikimedia Commons ·
-            Bootstrap 5.3 and jQuery 3.7 · texts and parts of the code written with help of an AI assistant (Claude) ·
-            <a href="https://github.com/A11ert/TooGoodToGo#credits">all credits</a></p>
+        <!-- my own grid: 1 column on a phone, 3 from 768px -->
+        <div class="footer-grid">
+            <div>
+                <p class="footer-brand">Too Good To Go</p>
+                <p>Surprise bags of unsold food from cafés, bakeries and shops in Astana.
+                    Good for your wallet, better for the planet.</p>
+            </div>
+            <nav aria-label="Footer menu">
+                <h2 class="footer-title">Pages</h2>
+                <ul class="footer-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="bags.html">Find a bag</a></li>
+                    <li><a href="recipes.html">Recipes</a></li>
+                    <li><a href="store.html">Partner story</a></li>
+                    <li><a href="business.html">For business</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h2 class="footer-title">Contact</h2>
+                <address>
+                    Astana, Kazakhstan<br>
+                    <a href="mailto:hello@toogoodtogo.kz">hello@toogoodtogo.kz</a><br>
+                    Every day 9:00–23:00
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Too Good To Go Astana · student project, AITU. Not connected to the real Too Good To Go company.</p>
+            <p class="credits">Photos: Wikimedia Commons ·
+                Bootstrap 5.3 and jQuery 3.7 · texts and parts of the code written with help of an AI assistant (Claude) ·
+                <a href="https://github.com/A11ert/TooGoodToGo#credits">all credits</a></p>
+        </div>
     </div>
 </footer>
 

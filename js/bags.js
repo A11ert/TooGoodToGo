@@ -90,6 +90,27 @@ function showBags() {
     }
 }
 
+// quick facts at the top: counted from the array, not written by hand
+function showFacts() {
+    let bagsLeft = 0;
+    let lastPickup = '00:00';
+    const stores = [];
+
+    for (const bag of bags) {
+        bagsLeft += bag.left;
+        if (bag.pickup > lastPickup) {
+            lastPickup = bag.pickup;
+        }
+        if (!stores.includes(bag.store)) {
+            stores.push(bag.store);
+        }
+    }
+
+    document.getElementById('fact-bags').textContent = bagsLeft;
+    document.getElementById('fact-stores').textContent = stores.length;
+    document.getElementById('fact-last').textContent = lastPickup;
+}
+
 searchInput.addEventListener('input', showBags);
 categorySelect.addEventListener('change', showBags);
 sortSelect.addEventListener('change', showBags);
@@ -109,4 +130,5 @@ document.getElementById('reset').addEventListener('click', function () {
     searchInput.focus();
 });
 
+showFacts();
 showBags();
