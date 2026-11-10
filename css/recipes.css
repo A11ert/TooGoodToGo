@@ -1,29 +1,21 @@
-/* Recipes page: Flexbox, a recipe goes to a new line when there is no room */
+/* Recipes page */
 
-.recipes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+.recipe-meta {
+    font-size: 0.9rem;
+    color: var(--gray);
 }
 
-.recipe {
-    flex: 1 1 200px;
-    background-color: white;
-    border-radius: 1rem;
-    overflow: hidden;
+/* steps are hidden at the start, jQuery opens them */
+.recipe-steps {
+    display: none;
+    margin: 1rem 0 0;
+    padding-left: 1.25rem;
 }
 
-.recipe img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+.recipe-steps li {
+    margin-bottom: 0.4rem;
 }
 
-.recipe h2 {
-    font-size: 1.3rem;
-    margin: 1rem 1.25rem 0.5rem;
-}
-
-.recipe p {
-    margin: 0 1.25rem 1.25rem;
+.share {
+    background-color: var(--peach);
 }

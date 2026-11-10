@@ -34,27 +34,64 @@
 </header>
 
 <main>
-    <!-- Recipes: Flexbox -->
+    <!-- Recipes: made by JavaScript from an array (js/recipes.js) -->
     <section>
         <div class="container">
-            <h1>Recipes</h1>
-            <p>Three easy ideas for the food from your bag.</p>
-            <div class="recipes">
-                <article class="recipe">
-                    <img src="images/bread-pudding.jpg" alt="Bread pudding">
-                    <h2>Bread pudding</h2>
-                    <p>Old bread, 2 eggs, milk and sugar. Bake for 30 minutes at 180 °C.</p>
-                </article>
-                <article class="recipe">
-                    <img src="images/fried-rice.jpg" alt="Fried rice with vegetables">
-                    <h2>Fried rice</h2>
-                    <p>Fry rice with an egg and any vegetables or meat from your bag.</p>
-                </article>
-                <article class="recipe">
-                    <img src="images/soup.jpg" alt="Vegetable soup">
-                    <h2>Vegetable soup</h2>
-                    <p>Cook the vegetables in water for 25 minutes. Add salt and herbs.</p>
-                </article>
+            <h1>Cook it, <span class="highlight">don't bin it</span></h1>
+            <p>Easy ideas for the food from your bag. Press "Show steps" to see how to cook.</p>
+            <div class="row g-4" id="recipe-list"></div>
+        </div>
+    </section>
+
+    <!-- Form: share your own recipe -->
+    <section class="share">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form class="site-form" id="recipe-form" novalidate>
+                        <fieldset>
+                            <legend>Share your leftover recipe</legend>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="r-name" class="form-label">Your name</label>
+                                    <input type="text" id="r-name" class="form-control" autocomplete="name">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="r-email" class="form-label">Email</label>
+                                    <input type="email" id="r-email" class="form-control" autocomplete="email">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="r-title" class="form-label">Recipe name</label>
+                                    <input type="text" id="r-title" class="form-control">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-6 col-md-3 mb-3">
+                                    <label for="r-time" class="form-label">Minutes</label>
+                                    <input type="number" id="r-time" class="form-control" min="1" max="180">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-6 col-md-3 mb-3">
+                                    <label for="r-level" class="form-label">Level</label>
+                                    <select id="r-level" class="form-select">
+                                        <option value="">Choose</option>
+                                        <option>Easy</option>
+                                        <option>Medium</option>
+                                    </select>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="r-steps" class="form-label">How to cook it</label>
+                                    <textarea id="r-steps" class="form-control" rows="4"></textarea>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-brand">Send recipe</button>
+                        </fieldset>
+                    </form>
+                    <p class="success" id="recipe-success" role="status"></p>
+                </div>
             </div>
         </div>
     </section>
@@ -62,12 +99,19 @@
 
 <footer>
     <div class="container">
-        <p>© 2026 Too Good To Go Astana</p>
+        <p>© 2026 Too Good To Go Astana · student project, AITU</p>
+        <p class="credits">Photos: Wikimedia Commons ·
+            Bootstrap 5.3 and jQuery 3.7 · texts and parts of the code written with help of an AI assistant (Claude) ·
+            <a href="https://github.com/A11ert/TooGoodToGo#credits">all credits</a></p>
     </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="js/recipes.js"></script>
 </body>
 </html>
