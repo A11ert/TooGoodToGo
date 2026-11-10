@@ -34,18 +34,34 @@
 </header>
 
 <main>
-    <!-- Hero: text and a photo, two columns from 768px -->
+    <!-- Hero: text on the left, a phone made only with HTML and CSS on the right -->
     <section class="hero">
         <div class="container">
-            <div class="row align-items-center g-4">
-                <div class="col-md-6">
-                    <h1>Save good food from the bin</h1>
-                    <p>Cafés and bakeries in Astana sell the food they did not sell today in surprise bags,
-                        up to 70% cheaper.</p>
-                    <a class="btn btn-brand" href="bags.html">Find a bag</a>
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-lg-7">
+                    <h1>Save <span class="highlight">good food</span> from the bin</h1>
+                    <p class="hero-lead">Cafés and bakeries in Astana sell the food they did not sell today in
+                        surprise bags, up to 70% cheaper.</p>
+                    <div class="hero-buttons">
+                        <a class="btn btn-brand" href="bags.html">Find a bag</a>
+                        <a class="btn btn-line" href="store.html#order">Order from a partner</a>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <img src="images/croissant.jpg" class="img-fluid rounded" alt="Croissants on a plate">
+                <div class="col-lg-5">
+                    <div class="hero-visual">
+                        <div class="phone">
+                            <p class="phone-top">Tonight near you · Yesil</p>
+                            <div class="phone-bag">
+                                <img src="images/croissant.jpg" alt="Croissants on a plate">
+                                <p class="phone-store">Nan &amp; Co. Bakery</p>
+                                <p class="price">990 ₸ <s>3 000 ₸</s></p>
+                                <p class="phone-time">Pick up 20:00–21:00</p>
+                            </div>
+                            <p class="phone-code">Pickup code <strong>5329</strong></p>
+                        </div>
+                        <span class="sticker sticker-sale" aria-hidden="true">−67%</span>
+                        <span class="sticker sticker-co2" aria-hidden="true">🌍 2.7 kg CO₂ saved</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,44 +143,46 @@
         </div>
     </section>
 
-    <!-- FAQ: Bootstrap accordion -->
+    <!-- Numbers: my own grid -->
+    <section class="numbers">
+        <div class="container">
+            <h2>Why it matters</h2>
+            <ul class="stats">
+                <li><strong>1.05 bn</strong> tonnes of food were wasted in the world in 2022</li>
+                <li><strong>132 kg</strong> of food are wasted per person every year</li>
+                <li><strong>60%</strong> of that waste happens at home</li>
+            </ul>
+            <p class="source">Source: UNEP Food Waste Index Report 2024</p>
+        </div>
+    </section>
+
+    <!-- FAQ: my own accordion, opened and closed with jQuery (js/home.js) -->
     <section>
         <div class="container">
             <h2>FAQ</h2>
-            <div class="accordion" id="faq">
-                <div class="accordion-item">
-                    <h3 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#q1" aria-expanded="true" aria-controls="q1">
-                            What is a surprise bag?
-                        </button>
-                    </h3>
-                    <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faq">
-                        <div class="accordion-body">Food that a café did not sell today. You know the café,
-                            but not what exactly is inside.</div>
+            <div class="faq">
+                <div class="faq-item">
+                    <h3><button class="faq-question" type="button" aria-expanded="false">What is a surprise bag?</button></h3>
+                    <div class="faq-answer">
+                        <p>Food that a café did not sell today. You know the café, but not what exactly is inside.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h3 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#q2" aria-expanded="false" aria-controls="q2">
-                            Is the food safe?
-                        </button>
-                    </h3>
-                    <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faq">
-                        <div class="accordion-body">Yes. It is fresh today, it just will not be sold tomorrow.</div>
+                <div class="faq-item">
+                    <h3><button class="faq-question" type="button" aria-expanded="false">Is the food safe?</button></h3>
+                    <div class="faq-answer">
+                        <p>Yes. It is fresh today, it just will not be sold tomorrow.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h3 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#q3" aria-expanded="false" aria-controls="q3">
-                            Can my café join?
-                        </button>
-                    </h3>
-                    <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faq">
-                        <div class="accordion-body">Yes, it is free. Fill in the form on the
-                            <a href="business.html">For business</a> page.</div>
+                <div class="faq-item">
+                    <h3><button class="faq-question" type="button" aria-expanded="false">How do I pay?</button></h3>
+                    <div class="faq-answer">
+                        <p>You choose the food and the pickup time on the website and pay at the counter.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3><button class="faq-question" type="button" aria-expanded="false">Can my café join?</button></h3>
+                    <div class="faq-answer">
+                        <p>Yes, it is free. Fill in the form on the <a href="business.html">For business</a> page.</p>
                     </div>
                 </div>
             </div>
@@ -174,12 +192,19 @@
 
 <footer>
     <div class="container">
-        <p>© 2026 Too Good To Go Astana</p>
+        <p>© 2026 Too Good To Go Astana · student project, AITU</p>
+        <p class="credits">Photos: Wikimedia Commons ·
+            Bootstrap 5.3 and jQuery 3.7 · texts and parts of the code written with help of an AI assistant (Claude) ·
+            <a href="https://github.com/A11ert/TooGoodToGo#credits">all credits</a></p>
     </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
 </body>
 </html>
