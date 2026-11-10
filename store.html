@@ -37,13 +37,14 @@
     <!-- Two columns: on a phone the text is first, from 768px the photo is on the left -->
     <section>
         <div class="container">
-            <h1>Turkish Food</h1>
+            <h1>Turkish <span class="highlight">Food</span></h1>
             <p>Our partner on Turan Avenue. Every evening its leftovers go into surprise bags.</p>
             <div class="row align-items-center g-4">
                 <div class="col-md-6 order-md-2">
                     <h2>Our story</h2>
                     <p>We cook mantı and bake bread every morning, so at closing time some food is always left.
                         Before, it went in the bin. Now students take it home in surprise bags.</p>
+                    <a class="btn btn-brand js-scroll" href="#order">Order tonight</a>
                 </div>
                 <div class="col-md-6 order-md-1">
                     <img src="images/manti.jpg" class="img-fluid rounded" alt="Mantı with yogurt">
@@ -72,16 +73,106 @@
             </div>
         </div>
     </section>
+
+    <!-- Order: the menu is made by JavaScript from an array (js/store.js) -->
+    <section id="order" class="order">
+        <div class="container">
+            <h2>Order tonight's leftovers</h2>
+            <p>Choose what you want, then pick a time to collect it.</p>
+
+            <div class="filters" id="menu-filters">
+                <button type="button" class="btn btn-line active" data-category="all">All</button>
+                <button type="button" class="btn btn-line" data-category="hot">Hot food</button>
+                <button type="button" class="btn btn-line" data-category="bakery">Bakery</button>
+                <button type="button" class="btn btn-line" data-category="dessert">Desserts</button>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="row g-3" id="menu-list"></div>
+                </div>
+
+                <!-- the bag: list, total and the pickup form -->
+                <div class="col-lg-4">
+                    <aside class="cart">
+                        <h3>Your bag</h3>
+                        <ul class="cart-list" id="cart-list"></ul>
+                        <p class="empty" id="cart-empty">Your bag is empty. Add something from the menu.</p>
+                        <p class="cart-total">Total: <strong id="cart-total">0 ₸</strong></p>
+                        <p class="cart-saved" id="cart-saved"></p>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pickup form: checked by JavaScript, errors under the fields -->
+    <section>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form class="site-form" id="order-form" novalidate>
+                        <fieldset>
+                            <legend>Pickup details</legend>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="o-name" class="form-label">Your name</label>
+                                    <input type="text" id="o-name" class="form-control" autocomplete="name">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="o-phone" class="form-label">Phone</label>
+                                    <input type="tel" id="o-phone" class="form-control" placeholder="+7 701 234 56 78" autocomplete="tel">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="o-email" class="form-label">Email for the pickup code</label>
+                                    <input type="email" id="o-email" class="form-control" autocomplete="email">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="o-date" class="form-label">Pickup day</label>
+                                    <input type="date" id="o-date" class="form-control">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="o-time" class="form-label">Pickup time</label>
+                                    <select id="o-time" class="form-select">
+                                        <option value="">Choose a time</option>
+                                        <option>20:00–20:30</option>
+                                        <option>20:30–21:00</option>
+                                        <option>21:00–21:30</option>
+                                        <option>21:30–22:00</option>
+                                    </select>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-brand">Confirm order</button>
+                            <p class="order-error" id="cart-error" role="alert"></p>
+                        </fieldset>
+                    </form>
+                    <p class="success" id="order-success" role="status"></p>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer>
     <div class="container">
-        <p>© 2026 Too Good To Go Astana</p>
+        <p>© 2026 Too Good To Go Astana · student project, AITU</p>
+        <p class="credits">Photos: Wikimedia Commons ·
+            Bootstrap 5.3 and jQuery 3.7 · texts and parts of the code written with help of an AI assistant (Claude) ·
+            <a href="https://github.com/A11ert/TooGoodToGo#credits">all credits</a></p>
     </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="js/store.js"></script>
 </body>
 </html>

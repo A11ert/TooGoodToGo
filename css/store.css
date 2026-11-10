@@ -18,3 +18,85 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* ---------- Order: filters, menu, bag ---------- */
+
+.order {
+    background-color: var(--peach);
+}
+
+
+.left {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+/* the bag stays on the screen while you scroll the menu (from 992px) */
+.cart {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: white;
+}
+
+.cart-list {
+    padding: 0;
+    list-style: none;
+}
+
+.cart-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--peach);
+}
+
+/* the price and the button stay on one line */
+.cart-list li span:last-child {
+    white-space: nowrap;
+}
+
+.remove {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-left: 0.25rem;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--peach);
+    color: var(--red);
+    font-weight: 800;
+    transition: background-color 0.2s;
+}
+
+.remove:hover {
+    background-color: var(--red);
+    color: white;
+}
+
+.cart-total {
+    margin: 1rem 0 0;
+    font-size: 1.2rem;
+}
+
+.cart-total strong {
+    color: var(--red);
+}
+
+.cart-saved {
+    margin: 0;
+    color: #2f6b4f;
+    font-weight: 600;
+}
+
+/* error under the button when the bag is empty */
+.order-error {
+    margin: 0.75rem 0 0;
+    color: var(--red);
+}
+
+@media (min-width: 992px) {
+    .cart {
+        position: sticky;
+        top: 1rem;
+    }
+}
