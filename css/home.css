@@ -2,8 +2,15 @@
 
 /* ---------- Hero ---------- */
 
+/* soft orange glow behind the phone */
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 85% 40%, rgba(200, 80, 30, 0.18), transparent 45%);
+}
+
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     line-height: 1.05;
 }
 
@@ -18,23 +25,37 @@
     gap: 0.75rem;
 }
 
+.hero-note {
+    margin: 1.25rem 0 0;
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
 /* The phone: only HTML and CSS, no picture */
 .hero-visual {
     position: relative;
     display: flex;
     justify-content: center;
-    padding: 1.5rem 0;
+    padding: 2rem 0;
 }
 
 .phone {
-    width: min(100%, 17rem);
-    padding: 2rem 1rem 1rem;
-    border: 0.6rem solid var(--dark);
-    border-radius: 2.5rem;
+    width: min(85%, 21rem);
+    padding: 2.5rem 1.1rem 1.1rem;
+    border: 0.7rem solid var(--dark);
+    border-radius: 3rem;
     background-color: var(--cream);
     box-shadow: 0 30px 60px rgba(155, 28, 28, 0.25);
     transform: rotate(4deg);
     transition: transform 0.4s;
+    animation: float 4s ease-in-out infinite;
+}
+
+/* the phone goes up and down slowly; "translate" works together with "transform" */
+@keyframes float {
+    50% {
+        translate: 0 -12px;
+    }
 }
 
 /* hover: the phone turns straight */
@@ -47,54 +68,77 @@
 }
 
 .phone-top {
-    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--gray);
 }
 
 .phone-bag {
-    padding: 0.75rem;
-    border-radius: 1.25rem;
+    margin-top: 0.5rem;
+    padding: 0.85rem;
+    border-radius: 1.4rem;
     background-color: white;
 }
 
-.phone-bag img {
-    width: 100%;
-    height: 7rem;
-    object-fit: cover;
-    border-radius: 0.9rem;
-    margin-bottom: 0.5rem;
+/* photo with a "3 left" badge in the corner */
+.phone-photo {
+    position: relative;
+    margin-bottom: 0.6rem;
 }
 
-.phone-store {
+.phone-photo img {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.phone-left {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    border-radius: 2rem;
+    background-color: var(--orange);
+    color: white;
+    font-size: 0.8rem;
     font-weight: 800;
 }
 
-.phone-time {
-    font-size: 0.85rem;
+.phone-store {
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.phone .phone-time {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
     color: var(--gray);
 }
 
 .phone-code {
-    margin-top: 0.75rem;
-    padding: 0.5rem;
+    margin-top: 0.85rem;
+    padding: 0.6rem;
     border: 2px dashed var(--peach);
     border-radius: 1rem;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
 
 .phone-code strong {
     display: block;
     color: var(--red);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     letter-spacing: 0.3em;
 }
 
 /* stickers around the phone */
 .sticker {
     position: absolute;
-    padding: 0.4rem 0.9rem;
+    z-index: 1;
+    padding: 0.45rem 1rem;
     border-radius: 2rem;
     font-weight: 800;
     color: white;
@@ -102,19 +146,49 @@
 }
 
 .sticker-sale {
-    top: 0.5rem;
+    top: 1rem;
     left: 0;
     background-color: var(--orange);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     rotate: -12deg;
 }
 
 .sticker-co2 {
     right: 0;
-    bottom: 2.5rem;
+    bottom: 3rem;
     background-color: #2f6b4f;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     rotate: 6deg;
+}
+
+/* big emoji stickers: only from 576px, on a phone there is no room */
+.sticker-emoji {
+    display: none;
+    position: absolute;
+    font-size: 2.75rem;
+}
+
+.sticker-bread {
+    top: 45%;
+    left: 2%;
+}
+
+.sticker-donut {
+    top: 0.5rem;
+    right: 6%;
+}
+
+@media (min-width: 576px) {
+    .sticker-emoji {
+        display: block;
+    }
+}
+
+/* people who turn off animations in the system do not get the moving phone */
+@media (prefers-reduced-motion: reduce) {
+    .phone {
+        animation: none;
+    }
 }
 
 /* ---------- How it works: Bootstrap carousel on a red background ---------- */
@@ -184,6 +258,32 @@
     width: 45%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+}
+
+/* ---------- Two sides: my own grid, 1 column on a phone, 2 from 768px ---------- */
+
+.sides-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.side {
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background-color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.side:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(155, 28, 28, 0.15);
+}
+
+.side-emoji {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 3rem;
 }
 
 /* ---------- Numbers: my own grid, 1 column on a phone, 3 from 768px ---------- */
@@ -280,7 +380,7 @@
 /* ---------- from 768px: bigger headings, 3 numbers in a row ---------- */
 @media (min-width: 768px) {
     .hero h1 {
-        font-size: 3.75rem;
+        font-size: 4rem;
     }
 
     .how h2 {
@@ -289,5 +389,9 @@
 
     .stats {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .sides-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }

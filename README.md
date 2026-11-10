@@ -14,13 +14,13 @@ share a recipe, and a café can calculate its income and join.
 
 | Page | File | Made by | New in the Endterm |
 |---|---|---|---|
-| Home | `index.html`, `js/home.js` | Yernaz Amangeldin | Phone made with HTML/CSS in the hero, numbers, FAQ accordion with jQuery |
-| Partner story | `store.html`, `js/store.js` | Yernaz Amangeldin | Menu from an array (8 dishes), category filter, bag with total and savings, pickup form |
-| Find a bag | `bags.html`, `js/bags.js` | Zhubanazar Meyirzhan | 10 bags from an array, search, category filter, sort, "nothing found" |
-| Recipes | `recipes.html`, `js/recipes.js` | Zhubanazar Meyirzhan | 8 recipes from an array, steps open with jQuery, "Share your recipe" form |
-| For business | `business.html`, `js/business.js` | Oshanbay Amir | Income calculator, partners from an array with filter and total, join form |
+| Home | `index.html`, `js/home.js` | Yernaz Amangeldin | Floating phone made with HTML/CSS in the hero, "Two sides", numbers, FAQ accordion with jQuery |
+| Partner story | `store.html`, `js/store.js` | Yernaz Amangeldin | Reviews (Flexbox), menu from an array (8 dishes), category filter, bag with total and savings, pickup form |
+| Find a bag | `bags.html`, `js/bags.js` | Zhubanazar Meyirzhan | Quick facts counted from the data, 10 bags from an array, search, category filter, sort, "nothing found" |
+| Recipes | `recipes.html`, `js/recipes.js` | Zhubanazar Meyirzhan | 8 recipes from an array, steps open with jQuery, storage tips (Flexbox), "Share your recipe" form |
+| For business | `business.html`, `js/business.js` | Oshanbay Amir | Three steps (CSS counter), income calculator, partners from an array with filter and total, join form |
 
-Shared: `css/style.css` (colours, buttons, cards, forms, focus) and `js/main.js`
+Shared: `css/style.css` (colours, buttons, cards, forms, focus, footer) and `js/main.js`
 (price format, form checking, smooth scroll) — Yernaz Amangeldin.
 
 ## How the forms work

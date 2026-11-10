@@ -42,6 +42,34 @@ section {
     color: var(--orange);
 }
 
+/* small label above a heading */
+.eyebrow {
+    margin-bottom: 0.75rem;
+    color: var(--orange);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* "live" dot that pulses, like a recording light */
+.live-dot {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--orange);
+    vertical-align: middle;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.3;
+    }
+}
+
 /* visible focus for the Tab key on every link, button and field */
 a:focus-visible,
 button:focus-visible,
@@ -196,32 +224,73 @@ textarea:focus-visible {
     font-weight: 600;
 }
 
+/* footer: dark, 3 columns from 768px */
 footer {
     background-color: var(--dark);
     color: var(--cream);
-    padding: 1.5rem 0;
-    text-align: center;
+    padding: 3rem 0 1.5rem;
     font-size: 0.9rem;
 }
 
-footer p {
-    margin: 0;
+.footer-grid {
+    display: grid;
+    gap: 2rem;
 }
 
-footer .credits {
-    margin-top: 0.5rem;
+.footer-brand {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--peach);
+}
+
+.footer-title {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: var(--orange);
+}
+
+.footer-list {
+    padding: 0;
+    list-style: none;
+}
+
+.footer-list li {
+    margin-bottom: 0.4rem;
+}
+
+footer a {
+    color: var(--cream);
+}
+
+footer a:hover {
+    color: var(--peach);
+}
+
+footer address {
+    margin: 0;
+    line-height: 1.8;
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(253, 224, 193, 0.2);
     font-size: 0.8rem;
     opacity: 0.8;
 }
 
-footer a {
-    color: var(--peach);
+.footer-bottom p {
+    margin: 0 0 0.25rem;
 }
 
 /* more space between sections on bigger screens */
 @media (min-width: 768px) {
     section {
         padding: 4rem 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
     }
 }
 

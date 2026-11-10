@@ -38,7 +38,8 @@
     <section class="hero">
         <div class="container">
             <div class="row align-items-center g-4 g-lg-5">
-                <div class="col-lg-7">
+                <div class="col-lg-6">
+                    <p class="eyebrow"><span class="live-dot"></span>Discover · Rescue · Enjoy</p>
                     <h1>Save <span class="highlight">good food</span> from the bin</h1>
                     <p class="hero-lead">Cafés and bakeries in Astana sell the food they did not sell today in
                         surprise bags, up to 70% cheaper.</p>
@@ -46,21 +47,28 @@
                         <a class="btn btn-brand" href="bags.html">Find a bag</a>
                         <a class="btn btn-line" href="store.html#order">Order from a partner</a>
                     </div>
+                    <p class="hero-note">Free · 40+ partner stores in Astana · pickup until 23:00</p>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-6">
                     <div class="hero-visual">
                         <div class="phone">
-                            <p class="phone-top">Tonight near you · Yesil</p>
+                            <p class="phone-top"><span>Tonight near you</span> <span>📍 Yesil</span></p>
                             <div class="phone-bag">
-                                <img src="images/croissant.jpg" alt="Croissants on a plate">
+                                <div class="phone-photo">
+                                    <img src="images/croissant.jpg" alt="Croissants on a plate">
+                                    <span class="phone-left">3 left</span>
+                                </div>
                                 <p class="phone-store">Nan &amp; Co. Bakery</p>
                                 <p class="price">990 ₸ <s>3 000 ₸</s></p>
-                                <p class="phone-time">Pick up 20:00–21:00</p>
+                                <p class="phone-time"><span class="live-dot"></span>Pick up 20:00–21:00</p>
+                                <a class="btn btn-brand w-100" href="store.html#order">Reserve</a>
                             </div>
                             <p class="phone-code">Pickup code <strong>5329</strong></p>
                         </div>
                         <span class="sticker sticker-sale" aria-hidden="true">−67%</span>
                         <span class="sticker sticker-co2" aria-hidden="true">🌍 2.7 kg CO₂ saved</span>
+                        <span class="sticker-emoji sticker-bread" aria-hidden="true">🥖</span>
+                        <span class="sticker-emoji sticker-donut" aria-hidden="true">🍩</span>
                     </div>
                 </div>
             </div>
@@ -143,6 +151,28 @@
         </div>
     </section>
 
+    <!-- Two sides: two cards in my own grid -->
+    <section class="sides">
+        <div class="container">
+            <p class="eyebrow text-center">Two sides, one goal</p>
+            <h2 class="text-center">Which side of the rescue are you on?</h2>
+            <div class="sides-grid">
+                <article class="side">
+                    <span class="side-emoji" aria-hidden="true">🛍️</span>
+                    <h3>Rescue good food</h3>
+                    <p>Up to 70% off at cafés, bakeries and restaurants near you. Dinner for the price of a coffee.</p>
+                    <a class="btn btn-brand" href="bags.html">Find a bag</a>
+                </article>
+                <article class="side">
+                    <span class="side-emoji" aria-hidden="true">🏪</span>
+                    <h3>Sell your leftovers</h3>
+                    <p>Turn unsold food into money and new regular customers. Joining is free.</p>
+                    <a class="btn btn-brand" href="business.html">Join as a partner</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- Numbers: my own grid -->
     <section class="numbers">
         <div class="container">
@@ -192,10 +222,38 @@
 
 <footer>
     <div class="container">
-        <p>© 2026 Too Good To Go Astana · student project, AITU</p>
-        <p class="credits">Photos: Wikimedia Commons ·
-            Bootstrap 5.3 and jQuery 3.7 · texts and parts of the code written with help of an AI assistant (Claude) ·
-            <a href="https://github.com/A11ert/TooGoodToGo#credits">all credits</a></p>
+        <!-- my own grid: 1 column on a phone, 3 from 768px -->
+        <div class="footer-grid">
+            <div>
+                <p class="footer-brand">Too Good To Go</p>
+                <p>Surprise bags of unsold food from cafés, bakeries and shops in Astana.
+                    Good for your wallet, better for the planet.</p>
+            </div>
+            <nav aria-label="Footer menu">
+                <h2 class="footer-title">Pages</h2>
+                <ul class="footer-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="bags.html">Find a bag</a></li>
+                    <li><a href="recipes.html">Recipes</a></li>
+                    <li><a href="store.html">Partner story</a></li>
+                    <li><a href="business.html">For business</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h2 class="footer-title">Contact</h2>
+                <address>
+                    Astana, Kazakhstan<br>
+                    <a href="mailto:hello@toogoodtogo.kz">hello@toogoodtogo.kz</a><br>
+                    Every day 9:00–23:00
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Too Good To Go Astana · student project, AITU. Not connected to the real Too Good To Go company.</p>
+            <p class="credits">Photos: Wikimedia Commons ·
+                Bootstrap 5.3 and jQuery 3.7 · texts and parts of the code written with help of an AI assistant (Claude) ·
+                <a href="https://github.com/A11ert/TooGoodToGo#credits">all credits</a></p>
+        </div>
     </div>
 </footer>
 
